@@ -5,7 +5,6 @@
 vim.opt.fillchars = "eob: " -- avoid the ~ fillchars at the borders
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.wrap = false
 
 lvim.format_on_save.enabled = true
 lvim.transparent_window = false
@@ -18,24 +17,27 @@ lvim.transparent_window = false
 ---------------------------------------- KEYBINDINGS --------------------------------------------
 -------------------------------------------------------------------------------------------------
 
-lvim.keys.normal_mode["<Tab>"] = "<CMD>BufferLineCycleNext<CR>"
-lvim.keys.normal_mode["<S-Tab>"] = "<CMD>BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["<Tab>"] = "<Cmd>BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<S-Tab>"] = "<Cmd>BufferLineCyclePrev<CR>"
 
-lvim.builtin.which_key.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle file explorer" }
-lvim.keys.normal_mode["<C-e>"] = "<CMD>Neotree toggle<CR>"
+lvim.builtin.which_key.mappings["e"] = { "<Cmd>Neotree toggle<CR>", "Toggle file explorer" }
+lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
 
-lvim.keys.normal_mode["<C-p>"] = "<CMD>SessionManager load_session<CR>"
+lvim.keys.normal_mode["<C-p>"] = "<Cmd>SessionManager load_session<CR>"
 
 lvim.keys.normal_mode["<C-b>"] = ":ene <BAR> startinsert <CR>"
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 lvim.keys.normal_mode["<C-w>"] = ":BufferKill<CR>"
 
+lvim.keys.insert_mode["<C-1>"] = "<Plug>(luasnip-next-choice)"
+lvim.keys.insert_mode["<C-2>"] = "<Plug>(luasnip-prev-choice)"
+
 lvim.builtin.which_key.mappings["p"] = {
     name = "Project",
-    p = { "<CMD>SessionManager load_session<CR>", "Load project" },
-    l = { "<CMD>SessionManager load_last_session<CR>", "Load last project" },
-    s = { "<CMD>SessionManager save_current_session<CR>", "Save current project" },
-    d = { "<CMD>SessionManager delete_session<CR>", "Delete project" },
+    p = { "<Cmd>SessionManager load_session<CR>", "Load project" },
+    l = { "<Cmd>SessionManager load_last_session<CR>", "Load last project" },
+    s = { "<Cmd>SessionManager save_current_session<CR>", "Save current project" },
+    d = { "<Cmd>SessionManager delete_session<CR>", "Delete project" },
 }
 
 
@@ -68,6 +70,13 @@ lvim.plugins = {
         end
     },
 
+    { -- for text wrapping
+        "andrewferrier/wrapping.nvim",
+        config = function()
+            require("wrapping").setup()
+        end
+    },
+
     { -- for file explorer
         "nvim-neo-tree/neo-tree.nvim",
         dependencies = {
@@ -87,8 +96,8 @@ lvim.plugins = {
         opts = { name = ".venv", auto_refresh = true },
         event = 'VeryLazy',
         keys = {
-            { '<leader>vs', '<CMD>VenvSelect<CR>' },
-            { '<leader>vc', '<CMD>VenvSelectCached<CR>' },
+            { '<leader>vs', '<Cmd>VenvSelect<CR>' },
+            { '<leader>vc', '<Cmd>VenvSelectCached<CR>' },
         },
     },
 
@@ -127,6 +136,17 @@ lvim.plugins = {
         cmd = 'Nerdy',
     },
 
+    { -- for markdown preview
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+
+    { -- for formula and table alignment
+        'junegunn/vim-easy-align'
+    },
+
 }
 
 
@@ -159,6 +179,13 @@ require('session_manager').setup({
 
 
 
+-- config for markdown preview
+local g = vim.g
+g.mkdp_theme = 'light'
+g.mkdp_markdown_css = '~/configs/nvim/lua/custom/markdown.css'
+g.mkdp_port = '8842'
+
+
 
 -- config for telescope selection
 lvim.builtin.telescope.extensions = {
@@ -170,7 +197,7 @@ require("telescope").load_extension("ui-select")
 
 
 
--- config for terminal
+-- config for native terminal
 lvim.builtin.terminal.direction = "horizontal" -- default to be horizontal
 lvim.builtin.terminal.size = 30                -- <not> in percentage of screen
 
@@ -223,7 +250,7 @@ lvim.builtin.alpha.dashboard.section.buttons.entries[2] = {
     "r", "  Open Recent File", ":Telescope oldfiles <CR>"
 }
 lvim.builtin.alpha.dashboard.section.buttons.entries[3] = {
-    "f", "  Find Files", "<CMD>Telescope find_files<CR>"
+    "f", "  Find Files", "<Cmd>Telescope find_files<CR>"
 }
 lvim.builtin.alpha.dashboard.section.buttons.entries[4] = {
     "p", "  Load Project", ":SessionManager load_session<CR>"
@@ -233,7 +260,7 @@ lvim.builtin.alpha.dashboard.section.buttons.entries[5] = {
 }
 local config_path = require("lvim.config"):get_user_config_path()
 lvim.builtin.alpha.dashboard.section.buttons.entries[6] = {
-    "c", "  Configuration", "<CMD>edit " .. config_path .. " <CR>",
+    "c", "  Configuration", "<Cmd>edit " .. config_path .. " <CR>",
 }
 lvim.builtin.alpha.dashboard.section.buttons.entries[7] = {
     "q", "  Quit", ":qa<CR>"

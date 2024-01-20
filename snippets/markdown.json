@@ -1,0 +1,13 @@
+{
+    "Front matter": {
+        "prefix": "---",
+        "description": "Insert a simple front matter",
+        "body": [
+            "---",
+            "title: ${1}",
+            "category: ${2|Tech,Life|}",
+            "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "---"
+        ]
+    }
+}
