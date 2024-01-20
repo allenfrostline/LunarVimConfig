@@ -23,14 +23,14 @@ lvim.keys.normal_mode["<S-Tab>"] = "<Cmd>BufferLineCyclePrev<CR>"
 lvim.builtin.which_key.mappings["e"] = { "<Cmd>Neotree toggle<CR>", "Toggle file explorer" }
 lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
 
+lvim.keys.normal_mode["<M-v>"] = ":vsplit<CR>"
+lvim.keys.normal_mode["<M-h>"] = ":split<CR>"
+
 lvim.keys.normal_mode["<C-p>"] = "<Cmd>SessionManager load_session<CR>"
 
 lvim.keys.normal_mode["<C-b>"] = ":ene <BAR> startinsert <CR>"
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 lvim.keys.normal_mode["<C-w>"] = ":BufferKill<CR>"
-
-lvim.keys.insert_mode["<C-1>"] = "<Plug>(luasnip-next-choice)"
-lvim.keys.insert_mode["<C-2>"] = "<Plug>(luasnip-prev-choice)"
 
 lvim.builtin.which_key.mappings["p"] = {
     name = "Project",
@@ -39,6 +39,25 @@ lvim.builtin.which_key.mappings["p"] = {
     s = { "<Cmd>SessionManager save_current_session<CR>", "Save current project" },
     d = { "<Cmd>SessionManager delete_session<CR>", "Delete project" },
 }
+
+
+
+
+
+-------------------------------------------------------------------------------------------------
+--------------------------------------- AUTOCOMMANDS --------------------------------------------
+-------------------------------------------------------------------------------------------------
+
+lvim.autocommands = {
+    {
+        "ColorScheme",
+        {
+            command = "hi WinSeparator guifg=#666666 ctermfg=245"
+        }
+    }
+}
+
+
 
 
 
@@ -55,6 +74,12 @@ lvim.plugins = {
     { -- for telescope selection instead of native UI
         "nvim-telescope/telescope-ui-select.nvim",
     },
+
+    -- { -- for colorful split window borders
+    --     'nvim-zh/colorful-winsep.nvim',
+    --     config = true,
+    --     event = { "WinNew" },
+    -- },
 
     { -- for add/delete/change surrounding pairs (of quotes and brackets etc)
         "kylechui/nvim-surround",
@@ -167,6 +192,19 @@ lvim.builtin.lualine.sections.lualine_y = { "filetype" }
 lvim.builtin.lualine.sections.lualine_z = { "location" }
 
 
+-- config for colorful-winsep
+-- require("colorful-winsep").setup({
+--     highlight = { fg = "#ffc24b" },
+-- })
+
+
+-- config for colorizer
+require("colorizer").setup {
+    user_default_options = {
+        mode = "virtualtext", -- foreground, background,  virtualtext
+        virtualtext = "■",
+    },
+}
 
 
 -- config for session manager
