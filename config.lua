@@ -23,14 +23,10 @@ lvim.keys.normal_mode["<S-Tab>"] = "<Cmd>BufferLineCyclePrev<CR>"
 lvim.builtin.which_key.mappings["e"] = { "<Cmd>Neotree toggle<CR>", "Toggle file explorer" }
 lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
 
-lvim.keys.normal_mode["<M-v>"] = ":vsplit<CR>"
-lvim.keys.normal_mode["<M-h>"] = ":split<CR>"
-
 lvim.keys.normal_mode["<C-p>"] = "<Cmd>SessionManager load_session<CR>"
 
 lvim.keys.normal_mode["<C-b>"] = ":ene <BAR> startinsert <CR>"
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
-lvim.keys.normal_mode["<C-w>"] = ":BufferKill<CR>"
 
 lvim.builtin.which_key.mappings["p"] = {
     name = "Project",
@@ -52,7 +48,9 @@ lvim.autocommands = {
     {
         "ColorScheme",
         {
-            command = "hi WinSeparator guifg=#666666 ctermfg=245"
+            callback = function()
+                vim.cmd("hi WinSeparator guifg=#666666 ctermfg=245")
+            end
         }
     }
 }
@@ -172,6 +170,10 @@ lvim.plugins = {
         'junegunn/vim-easy-align'
     },
 
+    { -- for a bunch of good snippets
+        'honza/vim-snippets'
+    },
+
 }
 
 
@@ -220,7 +222,7 @@ require('session_manager').setup({
 -- config for markdown preview
 local g = vim.g
 g.mkdp_theme = 'light'
-g.mkdp_markdown_css = '~/configs/nvim/lua/custom/markdown.css'
+g.mkdp_markdown_css = '/Users/allenwang/.config/lvim/markdown.css'
 g.mkdp_port = '8842'
 
 
