@@ -18,7 +18,7 @@ h3 {
     font-size: 16px;
 }
 
-h5,h6,p,code,.katex {
+h4,h5,h6,p,code,.katex {
     font-size: 14px!important;
 }
 
@@ -39,7 +39,7 @@ h6 {
     color: #888888;
 }
 
-h2,h3,h4,h5 {
+h2,h3,h4,h5,h6 {
     margin-bottom: 0px!important;
 }
 
@@ -50,6 +50,7 @@ h2:before,h3:before,h4:before,h5:before,h6:before {
     color: #bb2222;
     position: absolute;
     margin-left: -12px;
+    margin-top: -2px;
 }
 
 #page-header {
@@ -61,7 +62,7 @@ h2:before,h3:before,h4:before,h5:before,h6:before {
     display: none;
 }
 
-h1,h2,h3,h4,h5,p,.katex,#toggle-theme {
+h1,h2,h3,h4,h5,h6,p,.katex,#toggle-theme {
     font-family: Palatino!important;
 }
 
