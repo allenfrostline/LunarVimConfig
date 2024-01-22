@@ -1,95 +1,126 @@
 .anchor {
-    display: none;
+  display: none;
 }
 
 h1 {
-    font-size: 24px;
-    border: none!important;
-    text-align: center;
-    margin-bottom:50px;
-    margin-top:0;
+  font-size: 24px;
+  border: none !important;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 0;
 }
 
 h2 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 h3 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-h4,h5,h6,p,code,.katex {
-    font-size: 14px!important;
+h4,
+h5,
+h6,
+p,
+code,
+.katex {
+  font-size: 14px !important;
 }
 
 p {
-    line-height: 3ex;
-    margin-bottom: 2ex!important;
+  line-height: 3ex;
+  margin-bottom: 2ex !important;
 }
 
 h4 {
-    color: #222222;
+  color: #222222;
 }
 
 h5 {
-    color: #444444
+  color: #444444;
 }
 
 h6 {
-    color: #888888;
+  color: #888888;
 }
 
-h2,h3,h4,h5,h6 {
-    margin-bottom: 0px!important;
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0px !important;
 }
 
-h2:before,h3:before,h4:before,h5:before,h6:before {
-    content: "#";
-    font-family: Hervetica;
-    text-align: right;
-    color: #bb2222;
-    position: absolute;
-    margin-left: -12px;
-    margin-top: -2px;
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  content: "#";
+  font-family: Hervetica;
+  text-align: right;
+  color: #bb2222;
+  position: absolute;
+  margin-left: -12px;
+  margin-top: -2px;
 }
 
 #page-header {
-    border: none;
-    height: 25px;
+  border: none;
+  height: 25px;
 }
 
 #page-header h3 {
-    display: none;
+  display: none;
 }
 
-h1,h2,h3,h4,h5,h6,p,.katex,#toggle-theme {
-    font-family: Palatino!important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.katex,
+#toggle-theme {
+  font-family: Palatino !important;
 }
 
 .markdown-body {
-    padding: 50px;
-    margin: 0 auto;
-    width: 700px;
+  padding: 50px;
+  margin: 0 auto;
+  width: 700px;
+}
+
+pre,
+code {
+  font-size: 13px !important;
 }
 
 [data-theme="dark"] {
-    --background-color: #282828;
-    background-color: #282828;
+  --background-color: #282828;
+  background-color: #282828;
+}
+
+[data-theme="dark"] {
+  .markdown-body pre {
+    background-color: var(--background-color);
+  }
 }
 
 p {
-    margin: 0;
-    text-align: justify;
+  margin: 0;
+  text-align: justify;
 }
 
 pre {
-    padding-top: 0!important;
-    padding-bottom: 0!important;
-    margin-top: 0;
-    margin-bottom: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 code {
-    font-size: 12px;
+  font-size: 12px;
 }
-

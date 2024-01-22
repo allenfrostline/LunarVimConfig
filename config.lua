@@ -23,10 +23,16 @@ lvim.transparent_window = false
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-    { name = "black" },
-    { name = "isort" },
-    { name = "clang-format" },
+    { command = "black",        filetypes = { "python" } },
+    { command = "isort",        filetypes = { "python" } },
+    { command = "clang-format", filetypes = { "cpp", "c" } },
+    { command = "markdownlint", filetypes = { "markdown" } },
+    { command = "prettierd",    filetypes = { "css" } }
 }
+
+
+
+
 
 
 -------------------------------------------------------------------------------------------------
