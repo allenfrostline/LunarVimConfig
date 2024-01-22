@@ -244,8 +244,8 @@ require('session_manager').setup({
 -- config for markdown preview
 local g = vim.g
 g.mkdp_theme = 'light'
-g.mkdp_markdown_css = vim.fn.expand('~/.config/lvim/markdown.css')
-g.mkdp_highlight_css = vim.fn.expand('~/.config/lvim/highlight.css')
+g.mkdp_markdown_css = vim.fn.expand('~/.config/lvim/css/markdown.css')
+g.mkdp_highlight_css = vim.fn.expand('~/.config/lvim/css/highlight.css')
 g.mkdp_port = '8842'
 
 
