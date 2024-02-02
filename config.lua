@@ -199,6 +199,17 @@ lvim.plugins = {
 }
 
 
+
+-- fixing encoding for clangd
+require("lspconfig").clangd.setup {
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+    },
+}
+
+
+
 -- turn off netrw when neo-tree is the file explorer
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
