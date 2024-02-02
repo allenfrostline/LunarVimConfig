@@ -225,7 +225,7 @@ lvim.builtin.lualine.sections.lualine_z = { "location" }
 -- config for colorizer
 require("colorizer").setup {
     user_default_options = {
-        mode = "virtualtext", -- foreground, background,  virtualtext
+        mode = "virtualtext", -- foreground, background, virtualtext
         virtualtext = "■",
     },
 }
