@@ -42,10 +42,16 @@ formatters.setup {
 lvim.keys.normal_mode["<Tab>"] = "<Cmd>BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-Tab>"] = "<Cmd>BufferLineCyclePrev<CR>"
 
+lvim.keys.normal_mode["|"] = ":vsplit<CR>"
+lvim.keys.normal_mode["-"] = ":split<CR>"
+
+lvim.keys.visual_mode["<C-[>"] = ":SimpleAlign \\\\\\\\\\\\@<!|<CR>"
+lvim.keys.visual_mode["<C-]>"] = ":SimpleAlign \\\\\\\\\\\\@<!| -justify right<CR>"
+
 lvim.builtin.which_key.mappings["e"] = { "<Cmd>Neotree toggle<CR>", "Toggle file explorer" }
 lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
 
-lvim.keys.normal_mode["<C-p>"] = "<Cmd>SessionManager load_session<CR>"
+lvim.keys.normal_mode["<C-p>"] = "\"0p"
 
 lvim.keys.normal_mode["<C-b>"] = ":ene <BAR> startinsert <CR>"
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
@@ -89,6 +95,18 @@ lvim.autocommands = {
 lvim.plugins = {
     { -- for multi-cursor
         "mg979/vim-visual-multi",
+    },
+
+    { -- for cmake-tools
+        'Civitasv/cmake-tools.nvim',
+    },
+
+    { -- dependency of cmake-tools
+        'stevearc/overseer.nvim',
+    },
+
+    { -- dependency of cmake-tools
+        'nvim-lua/plenary.nvim',
     },
 
     { -- for telescope selection instead of native UI
@@ -189,7 +207,7 @@ lvim.plugins = {
     },
 
     { -- for formula and table alignment
-        'junegunn/vim-easy-align'
+        'kg8m/vim-simple-align'
     },
 
     { -- for a bunch of good snippets
@@ -198,6 +216,12 @@ lvim.plugins = {
 
 }
 
+
+
+-- set up cmake-tools
+require("cmake-tools").setup {
+
+}
 
 
 -- fixing encoding for clangd
