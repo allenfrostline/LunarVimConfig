@@ -78,7 +78,7 @@ lvim.autocommands = {
         {
             callback = function()
                 vim.cmd("hi WinSeparator guifg=#666666")
-                vim.cmd("hi AlphaBanner guifg=#336677")
+                vim.cmd("hi AlphaBanner guifg=#444444")
             end
         }
     }
