@@ -131,14 +131,14 @@ lvim.plugins = {
         "nvchad/nvim-colorizer.lua",
         opts = {
             user_default_options = {
-                RGB = true,           -- #RGB hex codes e.g. #30c
-                RRGGBB = true,        -- #RRGGBB hex codes e.g. #3300cc
-                names = false,        -- "Name" codes e.g. Blue or blue
-                RRGGBBAA = false,     -- #RRGGBBAA hex codes e.g. #3300cc11
-                AARRGGBB = false,     -- 0xAARRGGBB hex codes
-                rgb_fn = false,       -- CSS rgb() and rgba() functions
-                hsl_fn = false,       -- CSS hsl() and hsla() functions
-                mode = "virtualtext", -- foreground, background, virtualtext
+                RGB = true,          -- #RGB hex codes e.g. #30c
+                RRGGBB = true,       -- #RRGGBB hex codes e.g. #3300cc
+                names = false,       -- "Name" codes e.g. Blue or blue
+                RRGGBBAA = false,    -- #RRGGBBAA hex codes e.g. #3300cc11
+                AARRGGBB = false,    -- 0xAARRGGBB hex codes
+                rgb_fn = false,      -- CSS rgb() and rgba() functions
+                hsl_fn = false,      -- CSS hsl() and hsla() functions
+                mode = "background", -- foreground, background, virtualtext
                 virtualtext = "■",
             }
         }
