@@ -54,6 +54,7 @@ lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
 lvim.keys.normal_mode["<C-p>"] = "\"0p"
 
 lvim.keys.normal_mode["<C-b>"] = ":ene <BAR> startinsert <CR>"
+lvim.builtin.which_key.mappings["b"] = ":ene <BAR> startinsert <CR>"
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 
 lvim.builtin.which_key.mappings["p"] = {
@@ -129,9 +130,19 @@ lvim.plugins = {
 
     { -- for color highlighting on hex strings (see below)
         "nvchad/nvim-colorizer.lua",
-        config = function()
-            require('colorizer').setup()
-        end
+        opts = {
+            user_default_options = {
+                RGB = true,           -- #RGB hex codes e.g. #30c
+                RRGGBB = true,        -- #RRGGBB hex codes e.g. #3300cc
+                names = false,        -- "Name" codes e.g. Blue or blue
+                RRGGBBAA = false,     -- #RRGGBBAA hex codes e.g. #3300cc11
+                AARRGGBB = false,     -- 0xAARRGGBB hex codes
+                rgb_fn = false,       -- CSS rgb() and rgba() functions
+                hsl_fn = false,       -- CSS hsl() and hsla() functions
+                mode = "virtualtext", -- foreground, background, virtualtext
+                virtualtext = "■",
+            }
+        }
     },
 
     { -- for text wrapping
@@ -257,14 +268,6 @@ lvim.builtin.lualine.sections.lualine_z = { "location" }
 --     highlight = { fg = "#ffc24b" },
 -- })
 
-
--- config for colorizer
-require("colorizer").setup {
-    user_default_options = {
-        mode = "virtualtext", -- foreground, background, virtualtext
-        virtualtext = "■",
-    },
-}
 
 
 -- config for session manager
