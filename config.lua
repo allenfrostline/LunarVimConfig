@@ -54,7 +54,7 @@ lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
 lvim.keys.normal_mode["<C-p>"] = "\"0p"
 
 lvim.keys.normal_mode["<C-b>"] = ":ene <BAR> startinsert <CR>"
-lvim.builtin.which_key.mappings["b"] = ":ene <BAR> startinsert <CR>"
+lvim.builtin.which_key.mappings["n"] = ":ene <BAR> startinsert <CR>"
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 
 lvim.builtin.which_key.mappings["p"] = {
