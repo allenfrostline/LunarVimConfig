@@ -48,8 +48,10 @@ lvim.keys.normal_mode["-"] = ":split<CR>"
 lvim.keys.visual_mode["<C-[>"] = ":SimpleAlign \\\\\\\\\\\\@<!|<CR>"
 lvim.keys.visual_mode["<C-]>"] = ":SimpleAlign \\\\\\\\\\\\@<!| -justify right<CR>"
 
-lvim.builtin.which_key.mappings["e"] = { "<Cmd>Neotree toggle<CR>", "Toggle file explorer" }
+lvim.builtin.which_key.mappings["e"] = { "<Cmd>Neotree toggle<CR>", "Toggle File Explorer" }
 lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
+
+lvim.builtin.which_key.mappings["tt"] = { "<Cmd>ToggleWrapMode<CR>", "Toggle Wrap Mode" }
 
 lvim.keys.normal_mode["<C-p>"] = "\"0p"
 
@@ -58,10 +60,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 
 lvim.builtin.which_key.mappings["p"] = {
     name = "Project",
-    p = { "<Cmd>SessionManager load_session<CR>", "Load project" },
-    l = { "<Cmd>SessionManager load_last_session<CR>", "Load last project" },
-    s = { "<Cmd>SessionManager save_current_session<CR>", "Save current project" },
-    d = { "<Cmd>SessionManager delete_session<CR>", "Delete project" },
+    p = { "<Cmd>SessionManager load_session<CR>", "Load Project" },
+    l = { "<Cmd>SessionManager load_last_session<CR>", "Load Last Project" },
+    s = { "<Cmd>SessionManager save_current_session<CR>", "Save Current Project" },
+    d = { "<Cmd>SessionManager delete_session<CR>", "Delete Project" },
 }
 
 
@@ -79,6 +81,7 @@ lvim.autocommands = {
             callback = function()
                 vim.cmd("hi WinSeparator guifg=#666666")
                 vim.cmd("hi AlphaBanner guifg=#444444")
+                vim.cmd("hi DiagnosticVirtualTextHint guifg=#444444")
             end
         }
     }
@@ -96,6 +99,10 @@ lvim.autocommands = {
 lvim.plugins = {
     { -- for multi-cursor
         "mg979/vim-visual-multi",
+    },
+
+    { -- for python docstring
+        "pixelneo/vim-python-docstring"
     },
 
     { -- for cmake-tools
