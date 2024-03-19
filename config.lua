@@ -231,7 +231,6 @@ lvim.plugins = {
     { -- for a bunch of good snippets
         'honza/vim-snippets'
     },
-
 }
 
 
@@ -251,12 +250,15 @@ require("lspconfig").clangd.setup {
 }
 
 
-
 -- turn off netrw when neo-tree is the file explorer
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 lvim.builtin.nvimtree.active = false
 
+
+
+-- turn off treesitter smart indentation (buggy)
+lvim.builtin.treesitter.indent.enable = false
 
 
 -- color schemes
