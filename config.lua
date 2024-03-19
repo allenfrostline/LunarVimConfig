@@ -254,7 +254,11 @@ require("lspconfig").clangd.setup {
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 lvim.builtin.nvimtree.active = false
-
+require("neo-tree").setup({
+    window = {
+        width = 25,
+    }
+})
 
 
 -- turn off treesitter smart indentation (buggy)
