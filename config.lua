@@ -25,9 +25,9 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
     { command = "black",        filetypes = { "python" } },
     { command = "isort",        filetypes = { "python" } },
-    { command = "clang-format", filetypes = { "cpp", "c" } },
+    { command = "clang-format", filetypes = { "cpp", "c", "java" } },
     { command = "markdownlint", filetypes = { "markdown" } },
-    { command = "prettier",     filetypes = { "css" },     args = { "--tab-width", 4 } }
+    { command = "prettier",     filetypes = { "css" },             args = { "--tab-width", 4 } }
 }
 
 
