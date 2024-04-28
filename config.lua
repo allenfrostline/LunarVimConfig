@@ -299,7 +299,7 @@ g.mkdp_markdown_css = vim.fn.expand('~/.config/lvim/css/markdown.css')
 g.mkdp_highlight_css = vim.fn.expand('~/.config/lvim/css/highlight.css')
 g.mkdp_port = '8842'
 
-
+g.mkdp_preview_options = { toc = { level = 2 } }
 
 -- config for telescope selection
 lvim.builtin.telescope.extensions = {
