@@ -200,6 +200,10 @@ lvim.plugins = {
         lazy = false,
     },
 
+    { -- for java support
+        "mfussenegger/nvim-jdtls",
+    },
+
     { -- for access to a library of ascii arts
         "MaximilianLloyd/ascii.nvim",
         dependencies = {
@@ -234,6 +238,8 @@ lvim.plugins = {
 }
 
 
+-- jdtls extend
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 
 -- set up cmake-tools
 require("cmake-tools").setup {

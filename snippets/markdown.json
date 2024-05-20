@@ -14,10 +14,7 @@
         "prefix": "details",
         "description": "Insert a collapsible details tag",
         "body": [
-            "<details>",
-            "<summary>$1</summary>",
-            "$2",
-            "</details>"
+            "<details><summary>$1</summary>$2</details>"
         ]
     }
 }

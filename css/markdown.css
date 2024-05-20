@@ -118,6 +118,10 @@ h6:before {
     margin-top: -1px;
 }
 
+a {
+    text-decoration: none;
+}
+
 pre {
     padding: 2px 5px !important;
     border-radius: 2px;
