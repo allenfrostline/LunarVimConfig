@@ -16,5 +16,19 @@
         "body": [
             "<details><summary>$1</summary>$2</details>"
         ]
+    },
+    "Ruby": {
+        "prefix": "ruby",
+        "description": "Insert a furigana/ruby shortcode",
+        "body": [
+            "{{%ruby $2%}}$1{{%/ruby%}}"
+        ]
+    },
+    "Kotoba": {
+        "prefix": "word",
+        "description": "Insert a span tag (for the word) with another collapsed span tag (for the definition)",
+        "body": [
+            "<span class=\"word\">{{%ruby $2%}}$1{{%/ruby%}}<span class=\"definition\">$3</span></span>"
+        ]
     }
 }

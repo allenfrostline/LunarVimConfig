@@ -18,7 +18,7 @@ lvim.transparent_window = false
 
 
 -------------------------------------------------------------------------------------------------
----------------------------------------- FORMATTERS ---------------------------------------------
+-------------------------------- FORMATTERS AND LANGUAGE SERVERS --------------------------------
 -------------------------------------------------------------------------------------------------
 
 local formatters = require "lvim.lsp.null-ls.formatters"
@@ -29,6 +29,12 @@ formatters.setup {
     { command = "markdownlint", filetypes = { "markdown" } },
     { command = "prettier",     filetypes = { "css" },             args = { "--tab-width", 4 } }
 }
+
+require("lvim.lsp.manager").setup("marksman", {})   -- md
+require("lvim.lsp.manager").setup("jdtls", {})      -- java
+require("lvim.lsp.manager").setup("clangd", {})     -- cpp
+require("lvim.lsp.manager").setup("pyright", {})    -- py
+require("lvim.lsp.manager").setup("ruff-lsp", {})   -- py
 
 
 
@@ -53,6 +59,8 @@ lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
 
 lvim.builtin.which_key.mappings["tt"] = { "<Cmd>ToggleWrapMode<CR>", "Toggle Wrap Mode" }
 
+lvim.builtin.which_key.mappings["x"] = { ":bp<bar>sp<bar>bn<bar>bd<CR>", "Close Buffer" }
+
 lvim.keys.normal_mode["<C-p>"] = "\"0p"
 
 lvim.keys.normal_mode["<C-b>"] = ":ene <BAR> startinsert <CR>"
@@ -64,6 +72,23 @@ lvim.builtin.which_key.mappings["p"] = {
     l = { "<Cmd>SessionManager load_last_session<CR>", "Load Last Project" },
     s = { "<Cmd>SessionManager save_current_session<CR>", "Save Current Project" },
     d = { "<Cmd>SessionManager delete_session<CR>", "Delete Project" },
+}
+
+lvim.builtin.which_key.mappings["c"] = {
+    name = "ChatGPT",
+    c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+    e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
+    g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
+    t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
+    k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
+    d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+    a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+    o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+    s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+    f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+    x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+    r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
+    l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
 }
 
 
@@ -148,6 +173,20 @@ lvim.plugins = {
                 mode = "background", -- foreground, background, virtualtext
                 virtualtext = "■",
             }
+        }
+    },
+
+    { -- for GPT support
+        "jackMort/ChatGPT.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "folke/trouble.nvim",
+            "nvim-telescope/telescope.nvim"
         }
     },
 
