@@ -46,7 +46,8 @@ h5,
 h6,
 p,
 pre {
-    margin-bottom: 1ex !important;
+    margin-bottom: 1ex;
+    margin-top: 1ex;
 }
 
 li {
@@ -66,19 +67,19 @@ h1 code {
 }
 
 h2 {
-    font-size: 22px;
-}
-
-h2 code {
     font-size: 21px;
 }
 
-h3 {
+h2 code {
     font-size: 20px;
 }
 
+h3 {
+    font-size: 18px;
+}
+
 h3 code {
-    font-size: 19px;
+    font-size: 17px;
 }
 
 h4 code,
@@ -94,18 +95,6 @@ p,
 .katex,
 li {
     font-size: 16px !important;
-}
-
-h4 {
-    color: #222222;
-}
-
-h5 {
-    color: #444444;
-}
-
-h6 {
-    color: #888888;
 }
 
 h2:before,
