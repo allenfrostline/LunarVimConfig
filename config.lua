@@ -12,11 +12,6 @@ lvim.transparent_window = false
 
 
 
-
-
-
-
-
 -------------------------------------------------------------------------------------------------
 -------------------------------- FORMATTERS AND LANGUAGE SERVERS --------------------------------
 -------------------------------------------------------------------------------------------------
@@ -35,7 +30,9 @@ require("lvim.lsp.manager").setup("jdtls", {})      -- java
 require("lvim.lsp.manager").setup("clangd", {})     -- cpp
 require("lvim.lsp.manager").setup("pyright", {})    -- py
 
-
+vim.opt.wrap = true
+vim.opt.breakindent = true
+vim.opt.linebreak = true
 
 
 
