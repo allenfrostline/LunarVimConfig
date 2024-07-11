@@ -8,9 +8,9 @@ body {
     --secondary-background-color: white;
 }
 
-.mermaid {
-    line-height: 2ex !important;
-}
+/* .mermaid { */
+/*     line-height: 2ex !important; */
+/* } */
 
 body,
 main {
