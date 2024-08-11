@@ -56,6 +56,9 @@ lvim.keys.normal_mode["<C-e>"] = "<Cmd>Neotree toggle<CR>"
 lvim.builtin.which_key.mappings["tt"] = { "<Cmd>ToggleWrapMode<CR>", "Toggle Wrap Mode" }
 
 lvim.builtin.which_key.mappings["x"] = { ":bp<bar>sp<bar>bn<bar>bd<CR>", "Close Buffer" }
+lvim.builtin.which_key.mappings["c"] = { ":bp<bar>sp<bar>bn<bar>bd<CR>", "Close Buffer" }
+
+lvim.keys.normal_mode["U"] = "<C-R>"
 
 lvim.keys.normal_mode["<C-p>"] = "\"0p"
 
@@ -324,6 +327,14 @@ lvim.builtin.lualine.sections.lualine_z = { "location" }
 -- })
 
 
+lvim.builtin.telescope.theme = "center"
+local telescope = require("telescope")
+telescope.load_extension("ui-select")
+telescope.setup({
+    defaults = {
+        layout_config = {width = 0.5, height = 0.5}
+    }
+})
 
 -- config for session manager
 local _ = require('plenary.path')
